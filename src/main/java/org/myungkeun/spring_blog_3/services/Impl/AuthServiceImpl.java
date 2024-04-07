@@ -34,7 +34,8 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public ResponseEntity<ApiResponseDto<?>> registerUser(RegisterRequest request) {
         try {
-            if (userRepository.findByEmail(request.getEmail()) != null) {
+            if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+                System.out.println();
                 return ResponseEntity
                         .status(HttpStatus.BAD_REQUEST)
                         .body(new ApiResponseDto<>(HttpStatus.BAD_REQUEST.value(), ApiResponseStatus.FAIL.name(), "동일한 email의 유저가 이미 존재합니다."));
