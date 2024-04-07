@@ -4,8 +4,10 @@ import org.myungkeun.spring_blog_3.dto.api.ApiResponseDto;
 import org.myungkeun.spring_blog_3.dto.user.UpdatePasswordRequest;
 import org.springframework.http.ResponseEntity;
 
-public interface UserService {
-    ResponseEntity<ApiResponseDto<?>> getProfileByToken();
+import java.security.Principal;
 
-    ResponseEntity<ApiResponseDto<?>> updatePasswordByToken(UpdatePasswordRequest request);
+public interface UserService {
+    ResponseEntity<ApiResponseDto<?>> getProfileByToken(Principal connectedUser);
+
+    ResponseEntity<ApiResponseDto<?>> updatePasswordByToken(Principal connectedUser, UpdatePasswordRequest request);
 }
