@@ -30,6 +30,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
 
+    //보안필터체인 설정 / 애플리케이션의 보안을 관리하고 요청에 대한 인증 및 권한 부여를 구현
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity
@@ -46,3 +47,4 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 }
+

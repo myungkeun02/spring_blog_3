@@ -17,6 +17,7 @@ public class ApplicationAuditAware implements AuditorAware {
         if (authentication == null || !authentication.isAuthenticated() || authentication instanceof AnonymousAuthenticationToken) {
             return Optional.empty();
         }
+
         User userPrincipal = (User) authentication.getPrincipal();
         return Optional.ofNullable(userPrincipal.getId());
     }

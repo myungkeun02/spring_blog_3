@@ -2,6 +2,7 @@ package org.myungkeun.spring_blog_3.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,10 +26,13 @@ public class User implements UserDetails {
     @GeneratedValue
     private long id;
 
+    @NotNull
     private String username;
 
+    @NotNull
     private String email;
 
+    @NotNull
     private String password;
 
     @Enumerated

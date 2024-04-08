@@ -21,11 +21,9 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
     private final TokenRepository tokenRepository;
-
     @Override
     protected void doFilterInternal(
             @NonNull HttpServletRequest request,
@@ -72,9 +70,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
-
         // 요청 및 응답을 다음 필터로 전달
         filterChain.doFilter(request, response);
-
     }
 }
